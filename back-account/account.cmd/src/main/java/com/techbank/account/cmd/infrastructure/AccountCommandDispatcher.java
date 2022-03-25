@@ -23,7 +23,7 @@ public class AccountCommandDispatcher implements CommandDispatcher {
 
     @Override
     public void send(BaseCommand command) {
-        List handlers = routes.get(command.getClass());
+        List<CommandHandlerMethod> handlers = routes.get(command.getClass());
         if(handlers == null || handlers.size() == 0 ){
             throw new RuntimeException("No command handler was registered!");
         }
